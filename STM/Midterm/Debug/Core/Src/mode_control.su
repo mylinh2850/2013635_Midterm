@@ -1,0 +1,5 @@
+../Core/Src/mode_control.c:10:6:normal_mode	8	static
+../Core/Src/mode_control.c:71:6:mode1_control	8	static
+../Core/Src/mode_control.c:97:6:mode2_control	8	static
+../Core/Src/mode_control.c:139:6:mode3_control	8	static
+../Core/Src/mode_control.c:180:6:mode4_control	8	static

@@ -1,0 +1,8 @@
+../Core/Src/setTrafficLight.c:11:6:setDefault1	8	static
+../Core/Src/setTrafficLight.c:17:6:setDefault2	8	static
+../Core/Src/setTrafficLight.c:23:6:setRed1Light	8	static
+../Core/Src/setTrafficLight.c:29:6:setGreen1Light	8	static
+../Core/Src/setTrafficLight.c:35:6:setYellow1Light	8	static
+../Core/Src/setTrafficLight.c:41:6:setRed2Light	8	static
+../Core/Src/setTrafficLight.c:47:6:setGreen2Light	8	static
+../Core/Src/setTrafficLight.c:53:6:setYellow2Light	8	static

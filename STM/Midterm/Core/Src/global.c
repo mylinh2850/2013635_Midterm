@@ -1,0 +1,30 @@
+/*
+ * global.c
+ *
+ *  Created on: Nov 1, 2022
+ *      Author: Linh
+ */
+
+
+#include "global.h"
+
+int status1 = 0;
+int status2 = 0;
+int idx = 1;
+
+int time1_display = 98;
+int time2_display = 5;
+int timeCounter = 100;
+
+int redTime = 5;
+int greenTime = 3;
+int yellowTime = 2;
+
+int red_temp = 5;
+int green_temp = 3;
+int yellow_temp = 2;
+
+int counter = 10;
+
+int mode = 1;
+int modeCounter = 1;

@@ -9,4 +9,4 @@
 #include "global.h"
 
 int status = INIT;
-int counter = 9;
+int counter = 5;

@@ -1456,9 +1456,9 @@ int main(void) {
 	setTimer2(10000);
  8000acc:	f242 7010 	movw	r0, #10000	; 0x2710
  8000ad0:	f000 f920 	bl	8000d14 <setTimer2>
-	counter = 5;
+	counter = 9;
  8000ad4:	4b04      	ldr	r3, [pc, #16]	; (8000ae8 <main+0x44>)
- 8000ad6:	2205      	movs	r2, #5
+ 8000ad6:	2209      	movs	r2, #9
  8000ad8:	601a      	str	r2, [r3, #0]
 
 	while (1) {

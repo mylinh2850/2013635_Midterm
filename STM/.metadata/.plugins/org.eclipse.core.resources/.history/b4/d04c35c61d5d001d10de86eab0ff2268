@@ -99,7 +99,7 @@ int main(void) {
 	status = INIT;
 	setTimer1(500);
 	setTimer2(10000);
-	counter = 9;
+	counter = 5;
 
 	while (1) {
 		fsm_simple_buttons_run();

@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="INC button is pressed"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="INC pressed"/>
+			<item value="DEC pressed"/>
+			<item value="RESET pressed"/>
+			<item value="COUNT_DOWN"/>
+			<item value="AUTO"/>
+			<item value="longPressKeyReg2"/>
+			<item value="buttonBuffer"/>
+			<item value="debounceButtonBuffer2"/>
+			<item value="debounceButtonBuffer1"/>
+			<item value="flag"/>
 			<item value="200"/>
 			<item value="isDECPressed()"/>
 			<item value="isINCPressed()"/>
 			<item value="isRESETPressed()"/>
 			<item value="isButtonPressed(2"/>
-			<item value="isButtonPressed(1)"/>
-			<item value="isButtonPressed(0)"/>
-			<item value="Button3"/>
-			<item value="Button2"/>
-			<item value="Button1"/>
-			<item value="&#x09;case INIT:"/>
-			<item value="fsm_simple_buttons_run()"/>
-			<item value="yellowTime"/>
-			<item value="greenTime"/>
-			<item value="redTime"/>
 		</list>
 		<list key="replacehistory">
+			<item value="INC button is pressed"/>
+			<item value="DEC button is pressed"/>
+			<item value="RESET button is pressed"/>
+			<item value="AUTO"/>
+			<item value=""/>
+			<item value="KeyReg3"/>
+			<item value="KeyReg2"/>
+			<item value="KeyReg1"/>
+			<item value="KeyReg0"/>
 			<item value="isButtonPressed(2)"/>
 			<item value="isButtonPressed(1)"/>
 			<item value="isButtonPressed(0)"/>
 			<item value="isDECPressed()"/>
 			<item value="isINCPressed()"/>
 			<item value="isRESETPressed()"/>
-			<item value="DEC"/>
-			<item value="INC"/>
-			<item value="RESET"/>
-			<item value="2000"/>
-			<item value="3000"/>
-			<item value="5000"/>
-			<item value="LED7_6"/>
-			<item value="LED7_5"/>
-			<item value="LED7_4"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

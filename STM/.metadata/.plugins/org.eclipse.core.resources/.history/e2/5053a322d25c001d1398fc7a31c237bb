@@ -1,0 +1,112 @@
+/*
+ * fsm_normal.c
+ *
+ *  Created on: Nov 5, 2022
+ *      Author: Linh
+ */
+
+#include "fsm_normal.h"
+
+int time10s = 1000;
+int countCheck = 0;
+int checkWait() {
+	if (time10s == 0) {
+		if (countCheck != 0)
+			return 0;
+		else
+			return 1;
+	}
+	if (isButtonPressed(0) == 1 || isButtonPressed(1) == 1
+			|| isButtonPressed(2) == 1) {
+		countCheck++;
+	}
+	time10s--;
+}
+
+void fsm_simple_buttons_run() {
+	switch (status) {
+	case INIT:
+		status = RST;
+		counter = 5;
+		display7SEG(counter);
+		break;
+	case RST:
+		if (isButtonPressed(0) == 1) {
+			//RESET pressed
+			status = RST;
+			counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(1) == 1) {
+			//INC pressed
+			status = INC;
+			counter++;
+			if (counter > 9)
+				counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(2) == 1) {
+			//DEC pressed
+			status = DEC;
+			counter--;
+			if (counter < 0)
+				counter = 9;
+			display7SEG(counter);
+		} else if (checkWait() == 1) {
+			status = COUNT_DOWN;
+			counter--;
+			if (counter < 0) {
+				counter = 0;
+			}
+			display7SEG(counter);
+		}
+		break;
+	case INC:
+		if (isButtonPressed(0) == 1) {
+			//RESET pressed
+			status = RST;
+			counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(1) == 1) {
+			//INC pressed
+			status = INC;
+			counter++;
+			if (counter > 9)
+				counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(2) == 1) {
+			//DEC pressed
+			status = DEC;
+			counter--;
+			if (counter < 0)
+				counter = 9;
+			display7SEG(counter);
+		}
+		break;
+	case DEC:
+		if (isButtonPressed(0) == 1) {
+			//RESET pressed
+			status = RST;
+			counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(1) == 1) {
+			//INC pressed
+			status = INC;
+			counter++;
+			if (counter > 9)
+				counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(2) == 1) {
+			//DEC pressed
+			status = DEC;
+			counter--;
+			if (counter < 0)
+				counter = 9;
+			display7SEG(counter);
+
+		}
+		break;
+	case COUNT_DOWN:
+		break;
+	default:
+		break;
+	}
+}

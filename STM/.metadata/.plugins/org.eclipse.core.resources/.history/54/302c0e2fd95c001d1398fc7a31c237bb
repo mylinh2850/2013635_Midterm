@@ -1,0 +1,183 @@
+/*
+ * fsm_normal.c
+ *
+ *  Created on: Nov 5, 2022
+ *      Author: Linh
+ */
+
+#include "fsm_normal.h"
+
+//void fsm_simple_buttons_run() {
+//	if (timer1_flag == 1) {
+//		setTimer1(1000);
+//		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+//	}
+//
+//	switch (status) {
+//	case INIT:
+//		status = RST;
+//		counter = 5;
+//		display7SEG(counter);
+//		break;
+//	case RST:
+//		if (isButtonPressed(0) == 1) {
+//			//RESET pressed
+//			status = RST;
+//			counter = 0;
+//			display7SEG(counter);
+//		} else if (isButtonPressed(1) == 1) {
+//			//INC pressed
+//			status = INC;
+//			counter++;
+//			if (counter > 9)
+//				counter = 0;
+//			display7SEG(counter);
+//		} else if (isButtonPressed(2) == 1) {
+//			//DEC pressed
+//			status = DEC;
+//			counter--;
+//			if (counter < 0)
+//				counter = 9;
+//			display7SEG(counter);
+//		}
+//		break;
+//	case INC:
+//		if (isButtonPressed(0) == 1) {
+//			//RESET pressed
+//			status = RST;
+//			counter = 0;
+//			display7SEG(counter);
+//		} else if (isButtonPressed(1) == 1) {
+//			//INC pressed
+//			status = INC;
+//			counter++;
+//			if (counter > 9)
+//				counter = 0;
+//			display7SEG(counter);
+//		} else if (isButtonPressed(2) == 1) {
+//			//DEC pressed
+//			status = DEC;
+//			counter--;
+//			if (counter < 0)
+//				counter = 9;
+//			display7SEG(counter);
+//		}
+//		break;
+//	case DEC:
+//		if (isButtonPressed(0) == 1) {
+//			//RESET pressed
+//			status = RST;
+//			counter = 0;
+//			display7SEG(counter);
+//		} else if (isButtonPressed(1) == 1) {
+//			//INC pressed
+//			status = INC;
+//			counter++;
+//			if (counter > 9)
+//				counter = 0;
+//			display7SEG(counter);
+//		} else if (isButtonPressed(2) == 1) {
+//			//DEC pressed
+//			status = DEC;
+//			counter--;
+//			if (counter < 0)
+//				counter = 9;
+//			display7SEG(counter);
+//
+//		}
+//		break;
+//	default:
+//		break;
+//	}
+//}
+
+void fsm_simple_buttons_run() {
+	if (timer1_flag == 1) {
+		setTimer1(1000);
+		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+	}
+
+	switch (status) {
+	case INIT:
+		status = RST;
+		counter = 5;
+		display7SEG(counter);
+		break;
+	case RST:
+		if (isButtonPressed(0) == 1) {
+			//RESET pressed
+			status = RST;
+			counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(1) == 1) {
+			//INC pressed
+			status = INC;
+			counter++;
+			if (counter > 9)
+				counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(2) == 1) {
+			//DEC pressed
+			status = DEC;
+			counter--;
+			if (counter < 0)
+				counter = 9;
+			display7SEG(counter);
+		}
+		break;
+	case INC:
+		if (isButtonPressed(0) == 1) {
+			//RESET pressed
+			status = RST;
+			counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(1) == 1) {
+			//INC pressed
+			status = INC;
+			counter++;
+			if (counter > 9)
+				counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(2) == 1) {
+			//DEC pressed
+			status = DEC;
+			counter--;
+			if (counter < 0)
+				counter = 9;
+			display7SEG(counter);
+		}
+		break;
+	case DEC:
+		if (isButtonPressed(0) == 1) {
+			//RESET pressed
+			status = RST;
+			counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(1) == 1) {
+			//INC pressed
+			status = INC;
+			counter++;
+			if (counter > 9)
+				counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(2) == 1) {
+			//DEC pressed
+			status = DEC;
+			counter--;
+			if (counter < 0)
+				counter = 9;
+			display7SEG(counter);
+
+		}
+		break;
+	case COUNT_DOWN:
+		while (counter >= 0) {
+			if (timer2_flag == 1) {
+				counter--;
+				display7SEG(counter);
+			}
+		}
+	default:
+		break;
+	}
+}

@@ -1,4 +1,1 @@
-../Core/Src/display7SEG.c:9:6:display7SEG1	16	static
-../Core/Src/display7SEG.c:114:6:display7SEG2	16	static
-../Core/Src/display7SEG.c:219:6:update7SEG1	24	static
-../Core/Src/display7SEG.c:241:6:update7SEG2	24	static
+../Core/Src/display7SEG.c:9:6:display7SEG	16	static

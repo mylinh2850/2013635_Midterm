@@ -1,0 +1,28 @@
+/*
+ * global.h
+ *
+ *  Created on: Nov 1, 2022
+ *      Author: Linh
+ */
+
+#ifndef INC_GLOBAL_H_
+#define INC_GLOBAL_H_
+
+#include <fsm_simple_buttons.h>
+#include "display7SEG.h"
+#include "software_timer.h"
+#include "button.h"
+#include "main.h"
+
+#define INIT		1
+#define RST			2
+#define INC			3
+#define DEC			4
+#define COUNT_DOWN	5
+
+
+extern int status;
+extern int counter;
+
+
+#endif /* INC_GLOBAL_H_ */

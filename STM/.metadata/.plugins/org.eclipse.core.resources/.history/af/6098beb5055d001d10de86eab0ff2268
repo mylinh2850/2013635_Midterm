@@ -1,0 +1,274 @@
+/*
+ * fsm_simple_buttons.c
+ *
+ *  Created on: Nov 5, 2022
+ *      Author: Linh
+ */
+
+#include "fsm_simple_buttons.h"
+
+void fsm_simple_buttons_run() {
+	if (timer1_flag == 1) {
+		setTimer1(1000);
+		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+	}
+
+	switch (status) {
+	case INIT:
+		status = COUNT_DOWN;
+		counter = 6;
+		display7SEG(counter);
+		break;
+
+	case RST:
+		if (isButtonPressed(0) == 1) {
+			//RESET pressed
+			status = RST;
+			setTimer2(10000);
+			counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(1) == 1) {
+			//INC pressed
+			status = INC;
+			setTimer2(10000);
+			counter++;
+			if (counter > 9)
+				counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(2) == 1) {
+			//DEC pressed
+			status = DEC;
+			setTimer2(10000);
+			counter--;
+			if (counter < 0)
+				counter = 9;
+			display7SEG(counter);
+		} else if (timer2_flag == 1) {
+			status = COUNT_DOWN;
+			setTimer3(1000);
+			display7SEG(counter);
+			counter--;
+			if (counter < 0)
+				counter = 0;
+		}
+		break;
+
+	case INC:
+		if (isButtonPressed(0) == 1) {
+			//RESET pressed
+			status = RST;
+			setTimer2(10000);
+			counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(1) == 1) {
+			//INC pressed
+			status = INC;
+			setTimer2(10000);
+			counter++;
+			if (counter > 9)
+				counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(2) == 1) {
+			//DEC pressed
+			status = DEC;
+			setTimer2(10000);
+			counter--;
+			if (counter < 0)
+				counter = 9;
+			display7SEG(counter);
+		} else if (timer2_flag == 1) {
+			status = COUNT_DOWN;
+			setTimer3(1000);
+			display7SEG(counter);
+			counter--;
+			if (counter < 0)
+				counter = 0;
+		}
+		break;
+
+	case DEC:
+		if (isButtonPressed(0) == 1) {
+			//RESET pressed
+			status = RST;
+			setTimer2(10000);
+			counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(1) == 1) {
+			//INC pressed
+			status = INC;
+			setTimer2(10000);
+			counter++;
+			if (counter > 9)
+				counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(2) == 1) {
+			//DEC pressed
+			status = DEC;
+			setTimer2(10000);
+			counter--;
+			if (counter < 0)
+				counter = 9;
+			display7SEG(counter);
+		} else if (timer2_flag == 1) {
+			status = COUNT_DOWN;
+			setTimer3(1000);
+			display7SEG(counter);
+			counter--;
+			if (counter < 0)
+				counter = 0;
+		}
+		break;
+
+	case COUNT_DOWN:
+		if (timer3_flag == 1) {
+			setTimer3(1000);
+			display7SEG(counter);
+			counter--;
+			if (counter < 0)
+				counter = 0;
+		}
+
+		if (isButtonPressed(0) == 1) {
+			//RESET pressed
+			status = RST;
+			setTimer2(10000);
+			counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(1) == 1) {
+			//INC pressed
+			status = INC;
+			setTimer2(10000);
+			counter++;
+			if (counter > 9)
+				counter = 0;
+			display7SEG(counter);
+		} else if (isButtonPressed(2) == 1) {
+			//DEC pressed
+			status = DEC;
+			setTimer2(10000);
+			counter--;
+			if (counter < 0)
+				counter = 9;
+			display7SEG(counter);
+		}
+
+	default:
+		break;
+	}
+}
+
+//void fsm_simple_buttons_run() {
+//	if (timer1_flag == 1) {
+//		setTimer1(1000);
+//		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+//	}
+//
+//	switch (status) {
+//	case INIT:
+//		status = COUNT_DOWN;
+//		counter = 6;
+//		display7SEG(counter);
+//
+//		if (isButtonPressed(0) == 1) {
+//			setTimer2(10000);
+//			status = RST;
+//		} else if (isButtonPressed(1) == 1) {
+//			setTimer2(10000);
+//			status = INC;
+//		} else if (isButtonPressed(2) == 1) {
+//			setTimer2(10000);
+//			status = DEC;
+//		} else if (timer2_flag == 1) {
+//			setTimer3(1000);
+//			status = COUNT_DOWN;
+//		}
+//		break;
+//
+//	case RST:
+//		if (isButtonPressed(0) == 1) {
+//			setTimer2(10000);
+//			status = RST;
+//			counter = 0;
+//			display7SEG(counter);
+//		} else if (isButtonPressed(1) == 1) {
+//			setTimer2(10000);
+//			status = INC;
+//		} else if (isButtonPressed(2) == 1) {
+//			setTimer2(10000);
+//			status = DEC;
+//		} else if (timer2_flag == 1) {
+//			setTimer3(1000);
+//			status = COUNT_DOWN;
+//		}
+//
+//		break;
+//
+//	case INC:
+//		if (isButtonPressed(0) == 1) {
+//			setTimer2(10000);
+//			status = RST;
+//		} else if (isButtonPressed(1) == 1) {
+//			setTimer2(10000);
+//			status = INC;
+//			counter++;
+//			if (counter > 9) {
+//				counter = 0;
+//			}
+//			display7SEG(counter);
+//		} else if (isButtonPressed(2) == 1) {
+//			setTimer2(10000);
+//			status = DEC;
+//		} else if (timer2_flag == 1) {
+//			setTimer3(1000);
+//			status = COUNT_DOWN;
+//		}
+//		break;
+//
+//	case DEC:
+//		if (isButtonPressed(0) == 1) {
+//			setTimer2(10000);
+//			status = RST;
+//		} else if (isButtonPressed(1) == 1) {
+//			setTimer2(10000);
+//			status = INC;
+//		} else if (isButtonPressed(2) == 1) {
+//			setTimer2(10000);
+//			status = DEC;
+//			counter--;
+//			if (counter < 0) {
+//				counter = 0;
+//			}
+//			display7SEG(counter);
+//		} else if (timer2_flag == 1) {
+//			setTimer3(1000);
+//			status = COUNT_DOWN;
+//		}
+//		break;
+//
+//	case COUNT_DOWN:
+//		if (timer3_flag == 1) {
+//			setTimer3(1000);
+//			display7SEG(counter);
+//			counter--;
+//			if (counter < 0)
+//				counter = 0;
+//		}
+//
+//		if (isButtonPressed(0) == 1) {
+//			setTimer2(10000);
+//			status = RST;
+//		} else if (isButtonPressed(1) == 1) {
+//			setTimer2(10000);
+//			status = INC;
+//		} else if (isButtonPressed(2) == 1) {
+//			setTimer2(10000);
+//			status = DEC;
+//		} else if (timer2_flag == 1) {
+//			setTimer3(1000);
+//			status = COUNT_DOWN;
+//		}
+//
+//	default:
+//		break;
+//	}
+//}

@@ -1,0 +1,13 @@
+/*
+ * global.c
+ *
+ *  Created on: Nov 1, 2022
+ *      Author: Linh
+ */
+
+
+#include "global.h"
+
+int status = INIT;
+int counter = 5;
+
